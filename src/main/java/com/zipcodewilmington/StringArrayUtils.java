@@ -84,7 +84,18 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean isPangramic(String[] array) {
         boolean isPangramic = false;
-
+        int i = 0;
+        String [] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+        String combinedString = String.join("", array).replaceAll("\\s+","").toLowerCase();
+        for (String s: alphabet
+        ) {
+            if (combinedString.contains(s)) {
+                i++;
+            }
+        }
+        if (i == 26) {
+            isPangramic = true;
+        }
         return isPangramic;
     }
 
@@ -94,17 +105,32 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-
-        return 0;
+        int counter = 0;
+        for (String s:array
+             ) {
+            if (s.equals(value)) {
+                counter++;
+            }
+        }
+        return counter;
     }
-
     /**
      * @param array         array of String objects
      * @param valueToRemove value to remove from array
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        String output = "";
+        int i = 0;
+        for (String s : array
+             ) {
+            if (!s.equals(valueToRemove)) {
+                output += s + " ";
+                i++;
+            }
+        }
+        String [] arr = output.split(" ");
+        return arr;
     }
 
     /**
@@ -112,7 +138,17 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        String output = "";
+
+        for (int i = 0; i < array.length -1 ; i++) {
+            if (!array[i].equals(array[i+1])) {
+                output += array[i] + " ";
+            }
+        }
+        output += array[array.length - 1];
+        String [] arr = output.split(" ");
+
+        return arr;
     }
 
     /**
@@ -120,7 +156,23 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
+
+        String output = "";
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i].equals(array[i-1])) {
+                output += array[i-1];
+            }
+            else {
+                output += array [i-1] + " ";
+            }
+
+        }
+        output += array[array.length - 1];
+        String [] arr = output.split(" ");
+        return arr;
+
+
     }
 
 
