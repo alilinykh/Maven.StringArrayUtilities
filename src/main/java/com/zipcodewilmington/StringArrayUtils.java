@@ -84,12 +84,7 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean isPangramic(String[] array) {
         boolean isPangramic = false;
-        String [] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-        Arrays.sort(array);
-        if (Arrays.equals(alphabet,array)) {
-            isPangramic = true;
 
-        }
         return isPangramic;
     }
 
@@ -99,6 +94,7 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
+
         return 0;
     }
 
