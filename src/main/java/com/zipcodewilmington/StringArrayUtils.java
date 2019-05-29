@@ -1,5 +1,8 @@
 package com.zipcodewilmington;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -25,7 +28,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array[array.length-1];
     }
 
     /**
@@ -33,7 +36,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        return array[array.length - 2];
     }
 
     /**
@@ -42,6 +45,9 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for (String x : array) {
+            if (x.equals(value)) {return true;}
+        }
         return false;
     }
 
@@ -50,7 +56,12 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        for (int i = 0; i < array.length/2; i++) {
+            String x = array[i];
+            array[i] = array[array.length - 1 -i];
+            array[array.length - 1 - i] = x;
+        }
+        return array;
     }
 
     /**
@@ -58,7 +69,13 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        boolean isPalindromic = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(array[array.length-1-i])) {
+                isPalindromic = true;
+            }
+        }
+        return isPalindromic;
     }
 
     /**
@@ -66,7 +83,14 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        boolean isPangramic = false;
+        String [] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+        Arrays.sort(array);
+        if (Arrays.equals(alphabet,array)) {
+            isPangramic = true;
+
+        }
+        return isPangramic;
     }
 
     /**
